@@ -1,13 +1,13 @@
 import pino from "pino";
+import "pino-roll";
 
-const transport = pino.transport({
-  targets: [
-    {
-      target: "pino/file",
-      options: { destination: "./logs/nextJs.log", mkdir: true },
-      level: process.env.PINO_LOG_LEVEL || "info",
+export const logger = pino({
+  transport: {
+    target: "pino-roll",
+    options: {
+      file: "/app/logs/nextJs.log",
+      frequency: "hourly",
+      mkdir: true,
     },
-  ],
+  },
 });
-
-export const logger = pino(transport);

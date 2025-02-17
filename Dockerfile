@@ -54,10 +54,6 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 RUN mkdir -p /app/logs && chown nextjs:nodejs /app/logs
 
-RUN apk update && apk add logrotate
-
-COPY logrotate.conf /etc/logrotate.d/nextjs
-
 USER nextjs
 
 EXPOSE 3000

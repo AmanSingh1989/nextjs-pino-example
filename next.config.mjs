@@ -3,7 +3,12 @@ const nextConfig = {
   output: "standalone",
   experimental: {
     instrumentationHook: true,
-    serverComponentsExternalPackages: ["pino", "pino-pretty", "next-logger"],
+    serverComponentsExternalPackages: [
+      "pino",
+      "pino-pretty",
+      "next-logger",
+      "pino-roll",
+    ],
   },
 };
 
